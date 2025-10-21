@@ -83,12 +83,14 @@ public class EnemyMovementComponent : MonoBehaviour
         // Get current velocity and only modify horizontal components
         Vector3 currentRbVelocity = rb.linearVelocity;
         
+        Debug.Log(distanceToPlayer);
+
         // Stop moving if too close to player
         if (distanceToPlayer <= stopDistance)
         {
             // Decelerate to stop (only on X and Z axes)
             Vector3 currentHorizontalVelocity = new Vector3(currentRbVelocity.x, 0, currentRbVelocity.z);
-            Vector3 newHorizontalVelocity = Vector3.Lerp(currentHorizontalVelocity, Vector3.zero, deceleration * Time.fixedDeltaTime);
+            Vector3 newHorizontalVelocity = Vector3.Lerp(currentHorizontalVelocity, Vector3.zero, deceleration * Time.deltaTime);
             
             rb.linearVelocity = new Vector3(newHorizontalVelocity.x, currentRbVelocity.y, newHorizontalVelocity.z);
         }
@@ -100,7 +102,7 @@ public class EnemyMovementComponent : MonoBehaviour
             
             // Smooth movement (only on X and Z axes)
             Vector3 currentHorizontalVelocity = new Vector3(currentRbVelocity.x, 0, currentRbVelocity.z);
-            Vector3 newHorizontalVelocity = Vector3.Lerp(currentHorizontalVelocity, targetHorizontalVelocity, acceleration * Time.fixedDeltaTime);
+            Vector3 newHorizontalVelocity = Vector3.Lerp(currentHorizontalVelocity, targetHorizontalVelocity, acceleration * Time.deltaTime);
             
             rb.linearVelocity = new Vector3(newHorizontalVelocity.x, currentRbVelocity.y, newHorizontalVelocity.z);
         }
