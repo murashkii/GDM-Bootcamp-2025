@@ -8,6 +8,7 @@ public class EnemyEntity : MonoBehaviour
     [Header("Enemy Components")]
     [SerializeField] private EnemyMovementComponent movementComponent;
     [SerializeField] private EnemyHitboxComponent hitboxComponent;
+    [SerializeField] private EnemyAttackComponent attackComponent;
     
     [Header("Enemy Settings")]
     [SerializeField] private string enemyName = "Enemy";
@@ -34,6 +35,8 @@ public class EnemyEntity : MonoBehaviour
             
         if (hitboxComponent == null)
             hitboxComponent = GetComponent<EnemyHitboxComponent>();
+
+        attackComponent.SetMovementComponent(movementComponent);
     }
     
     private void Start()

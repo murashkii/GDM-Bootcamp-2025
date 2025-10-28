@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8404971846606231515}
   - component: {fileID: 2681077552076224873}
   - component: {fileID: 8439577446242752207}
+  - component: {fileID: 2315013940489280766}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -129,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementComponent: {fileID: 2681077552076224873}
   hitboxComponent: {fileID: 8404971846606231515}
+  attackComponent: {fileID: 2315013940489280766}
   enemyName: Enemy
   enemyID: 0
   isActive: 1
@@ -194,3 +196,16 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &2315013940489280766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565735900252081426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44388774182b496409cedf16e572029c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackComponent
+  _damage: 10
